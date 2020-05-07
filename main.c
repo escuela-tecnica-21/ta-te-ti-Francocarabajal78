@@ -3,9 +3,9 @@
 #include <conio.h>
 //void dibujarcirculo();
 //void dibujarcruz();
-int arreglarTablero();
-void inicializartablero();
-void mostrartablero();
+int arreglarTablero(char tablero[], char posicion);
+void inicializartablero(char tablero[]);
+void mostrartablero(char tablero[]);
 //int numele();
 //int numeroelegido();
 //int filas();
@@ -33,7 +33,7 @@ void inicializartablero(char tablero[]) //crea al tablero para darle un valor a 
 {
     for(int x=0; x<9; x++)
     {
-        tablero[x]=""; //lo que se hace aca es dejar todos los elementos del vector "tablero" en blanco o vacios
+        tablero[x]=' '; //lo que se hace aca es dejar todos los elementos del vector "tablero" en blanco o vacios
     }
 }
 void mostrartablero(char tablero[])
@@ -65,14 +65,14 @@ void dibujarcruz() //Esta funcion crea las cruces controladas por el usuario
 }*/
 int arreglarTablero(char tablero[], char posicion) //Funcion que modifica el tablero para que el usuario pueda elegir una posicion aleatoria del tablero y si elige una que no existe le permite volver a ingresar otro valor de vuelta
 {
-    if (strcmp(posicion)!=9)
+    if (strlen(posicion)!=9)
       {
         printf("La longitud es distinta de nueve, por favor intentelo de nuevo.\n");
         return 1;
       }
     for (int i=0; i < strlen(posicion); i++)
     {
-        if (strcmp(posicion[i]=="X") || strcmp(posicion[i]=="O"))
+        if ((posicion[i]=='X') || (posicion[i]=='O'))
         {
             tablero[i]=posicion[i];
 	    }
