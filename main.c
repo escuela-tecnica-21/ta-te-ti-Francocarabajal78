@@ -78,7 +78,7 @@ int arreglarTablero(char tablero[], char posicion) //Funcion que modifica el tab
 	    }
         else
         {
-            tablero[i] = " ";
+            tablero[i] = ' ';
         }
     }
     return 0;
