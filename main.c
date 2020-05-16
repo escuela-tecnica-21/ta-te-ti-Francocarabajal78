@@ -23,6 +23,8 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
     mostrartablero(tablero);
     printf("elija un numero entre 1 y 9\n");
     scanf("%d", & ele_usu);
+    tablero[ele_usu] = 'X';
+    mostrarTablero(tablero);
     //posicion_usuario=numeroelegido(ele_usu);
     //dibujarcruz();
     //posicion_máquina=inicializarmáquina();
