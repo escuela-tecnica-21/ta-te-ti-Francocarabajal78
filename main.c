@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include <string.h>
 //void dibujarcirculo();
 //void dibujarcruz();
-int arreglarTablero(char tablero[], char posicion);
+int arreglarTablero(char tablero[], char * posicion);
 void inicializartablero(char tablero[]);
 void mostrartablero(char tablero[]);
 //int numele();
@@ -24,7 +24,7 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
     printf("elija un numero entre 1 y 9\n");
     scanf("%d", & ele_usu);
     tablero[ele_usu] = 'X';
-    mostrarTablero(tablero);
+    mostrartablero(tablero);
     //posicion_usuario=numeroelegido(ele_usu);
     //dibujarcruz();
     //posicion_máquina=inicializarmáquina();
@@ -65,7 +65,7 @@ void dibujarcruz() //Esta funcion crea las cruces controladas por el usuario
 {
   return num_ele--;
 }*/
-int arreglarTablero(char tablero[], char posicion) //Funcion que modifica el tablero para que el usuario pueda elegir una posicion aleatoria del tablero y si elige una que no existe le permite volver a ingresar otro valor de vuelta
+int arreglarTablero(char tablero[], char * posicion) //Funcion que modifica el tablero para que el usuario pueda elegir una posicion aleatoria del tablero y si elige una que no existe le permite volver a ingresar otro valor de vuelta
 {
     if (strlen(posicion)!=9)
       {
