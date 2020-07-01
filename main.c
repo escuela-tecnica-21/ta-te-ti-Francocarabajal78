@@ -6,6 +6,9 @@
 int arreglarTablero(char tablero[], char * posicion);
 void inicializartablero(char tablero[]);
 void mostrartablero(char tablero[]);
+int partidaterminada(char tablero[]);
+int victoria(tablero);
+int empate(tablero);
 //int numele();
 //int numeroelegido();
 //int filas();
@@ -19,13 +22,17 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
     int posicion_usuario; // posiciín en el tablero correspondiente a la eleccion del usuario (0,8)
     int posicion_maquina; //posicion en el tablero correspondiente a la que elige la máquina (0,8)
     char tablero[9];
+    char * posicion;
     inicializartablero(tablero);
     mostrartablero(tablero);
+    while(partidaterminada(tablero)==0)
+    {
     printf("elija un numero entre 1 y 9\n");
     scanf("%d", & ele_usu);
     tablero[ele_usu] = 'X';
     arreglarTablero(tablero, posicion);
     mostrartablero(tablero);
+    }
     //posicion_usuario=numeroelegido(ele_usu);
     //dibujarcruz();
     //posicion_máquina=inicializarmáquina();
@@ -85,6 +92,20 @@ int arreglarTablero(char tablero[], char * posicion) //Funcion que modifica el t
         }
     }
     return 0;
+}
+int partidaterminada(char tablero) // Esta función me dice si la partida termina en empate o victoria para que finalce el ciclo repetitivo "while"
+{
+    return victoria(tablero) || empate(tablero);
+}
+int victoria(char tablero) //Esta función me dice cuándo el juego termina en victoria
+{
+    for(int x=0; x<9; x++) //Este "for" recorre el tablero
+    {
+        if(tablero(posicion)==3) //Aca se pregunta si tres posiciones del tablero estan ocupadas con el mismo simbolo
+        {
+            return 0;
+        }
+    }
 }
 /*
 int filas(int fila) //Esta funcion devuelve el valor de filas del intervalo (0,8)
