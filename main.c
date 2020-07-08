@@ -9,6 +9,7 @@ void mostrartablero(char tablero[]);
 int partidaterminada(char tablero[]);
 int victoria(tablero);
 int empate(tablero);
+int contador(char tablero[], char simbolo, int a, int b, int c)
 //int numele();
 //int numeroelegido();
 //int filas();
@@ -23,6 +24,7 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
     int posicion_maquina; //posicion en el tablero correspondiente a la que elige la máquina (0,8)
     char tablero[9];
     char * posicion;
+    int const tirasganadoras[][3]{{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6}.{0,3,6},{1,4,7},{2,5,8}}; //son las jugadas ganadoras, esto nos servira para definir las funciones como "victoria" y "empate", se puso de tipo "const" porque va a ser constante y nunca va a cambiar
     inicializartablero(tablero);
     mostrartablero(tablero);
     while(partidaterminada(tablero)==0)
@@ -101,10 +103,30 @@ int victoria(char tablero) //Esta función me dice cuándo el juego termina en vic
 {
     for(int x=0; x<9; x++) //Este "for" recorre el tablero
     {
-        if(tablero(posicion)==3) //Aca se pregunta si tres posiciones del tablero estan ocupadas con el mismo simbolo
+        if(contador 'X' (tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3])==3) //Aca se pregunta si tres posiciones del tablero estan ocupadas con el mismo simbolo
         {
-            return 0;
+            return 1;
         }
+        if(contador 'O' (tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3])==3)
+        {
+            return 1;
+        }
+    }
+}
+int contador(char tablero[], char simbolo, int a, int b, int c) //esta funcion sirve como contador para contar si los espacios ocupados son 3
+{
+    int resultado;
+    if(tablero[a]==simbolo) //esto pregunta si el casillero esta ocupado por un simbolo, que se le sume uno al contador
+    {
+        resultado=resultado+1;
+    }
+    if(tablero[b]==simbolo)
+    {
+        resultado=resultado+1;
+    }
+    if(tablero[c]==simbolo)
+    {
+        resultado=resultado+1;
     }
 }
 /*
