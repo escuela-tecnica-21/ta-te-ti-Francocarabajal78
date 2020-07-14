@@ -9,7 +9,8 @@ void mostrartablero(char tablero[]);
 int partidaterminada(char tablero[]);
 int victoria(tablero);
 int empate(tablero);
-int contador(char tablero[], char simbolo, int a, int b, int c)
+int contador(char tablero[], char simbolo, int a, int b, int c);
+int CasilleroOcupado(char tablero[], int posicion);
 //int numele();
 //int numeroelegido();
 //int filas();
@@ -127,6 +128,30 @@ int contador(char tablero[], char simbolo, int a, int b, int c) //esta funcion s
     if(tablero[c]==simbolo)
     {
         resultado=resultado+1;
+    }
+}
+int empate(char tablero) //Esta funcion determina cuando el juego es empate
+{
+    for(int x=0; x<9; x++)
+    {
+        if(CasilleroOcupado(tablero)) //Aca se llama la funcion para que analize el tablero completo y decir si está completamente lleno, si es asi que devuelva un valor
+        {
+            return 1;
+        }
+    }
+}
+int CasilleroOcupado(char tablero[], int posicion) //Esta funcion determina si el tablero está lleno, ya que un juego se considera en empate cuando el tablero está lleno y no hay 3 simbolos consecutivos iguales
+{
+    for(int x=0; x<9; x++)
+    {
+        if(tablero[posicion]==' ') //Si un casillero del tablero tiene un espacio en blanco que devuelva un valor 0, es decir que no devuelva nada
+        {
+            return 0;
+        }
+        else
+        {
+            return 1; //Si el casillero está ocupado, devuelve un 1, es decir, devuelve un valor.
+        }
     }
 }
 /*
