@@ -11,6 +11,7 @@ int victoria(tablero);
 int empate(tablero);
 int contador(char tablero[], char simbolo, int a, int b, int c);
 int CasilleroOcupado(char tablero[], int posicion);
+int JugadaMaquina (char tablero[]);
 //int numele();
 //int numeroelegido();
 //int filas();
@@ -44,7 +45,7 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
 }
 void inicializartablero(char tablero[]) //crea al tablero para darle un valor a futuro
 {
-    for(int x=0; x<9; x++)
+    for(int x=0; x<8; x++)
     {
         tablero[x]=' '; //lo que se hace aca es dejar todos los elementos del vector "tablero" en blanco o vacios
     }
@@ -57,6 +58,27 @@ void mostrartablero(char tablero[])
     printf("---|---|---\n");
     printf("%c| %c| %c\n", tablero[6], tablero[7], tablero[8]);
 }
+int JugadaMaquina(char tablero[])
+{
+    //GANA
+    for(int x=0; x<8; x++) //Esto hace que cuando falte un simbolo para ganar, que la maquina gane
+    {
+        if(contador(tablero, 'O', tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3]==2))
+        {
+            return 1;
+        }
+    }
+
+    //EVITA QUE LE GANEN
+    /*for(int x=0; x<9; x++)
+    {
+        if((tablero, 'X', tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3]==2))
+        {
+            printf()
+        }
+    }*/
+}
+
 /*void dibujarcirculo() //Esta función crea los circulos manejados por la maquina
 {
     printf("%c", 79);
@@ -102,7 +124,7 @@ int partidaterminada(char tablero) // Esta función me dice si la partida termina
 }
 int victoria(char tablero) //Esta función me dice cuándo el juego termina en victoria
 {
-    for(int x=0; x<9; x++) //Este "for" recorre el tablero
+    for(int x=0; x<8; x++)
     {
         if(contador 'X' (tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3])==3) //Aca se pregunta si tres posiciones del tablero estan ocupadas con el mismo simbolo
         {
@@ -117,7 +139,7 @@ int victoria(char tablero) //Esta función me dice cuándo el juego termina en vic
 int contador(char tablero[], char simbolo, int a, int b, int c) //esta funcion sirve como contador para contar si los espacios ocupados son 3
 {
     int resultado;
-    if(tablero[a]==simbolo) //esto pregunta si el casillero esta ocupado por un simbolo, que se le sume uno al contador
+    if(tablero[a]==simbolo) //e
     {
         resultado=resultado+1;
     }
@@ -132,7 +154,7 @@ int contador(char tablero[], char simbolo, int a, int b, int c) //esta funcion s
 }
 int empate(char tablero) //Esta funcion determina cuando el juego es empate
 {
-    for(int x=0; x<9; x++)
+    for(int x=0; x<8; x++)
     {
         if(CasilleroOcupado(tablero)) //Aca se llama la funcion para que analize el tablero completo y decir si está completamente lleno, si es asi que devuelva un valor
         {
@@ -142,9 +164,9 @@ int empate(char tablero) //Esta funcion determina cuando el juego es empate
 }
 int CasilleroOcupado(char tablero[], int posicion) //Esta funcion determina si el tablero está lleno, ya que un juego se considera en empate cuando el tablero está lleno y no hay 3 simbolos consecutivos iguales
 {
-    for(int x=0; x<9; x++)
+    for(int x=0; x<8; x++)
     {
-        if(tablero[posicion]==' ') //Si un casillero del tablero tiene un espacio en blanco que devuelva un valor 0, es decir que no devuelva nada
+        if(tablero[posicion]==' ') //Determina si hay un casillero ocupado o vacio
         {
             return 0;
         }
