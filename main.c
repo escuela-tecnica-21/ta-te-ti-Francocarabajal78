@@ -26,7 +26,10 @@ int main(int argc, char argv[]) //el argumento argc contiene el número de parame
     int posicion_maquina; //posicion en el tablero correspondiente a la que elige la máquina (0,8)
     char tablero[9];
     char * posicion;
-    int const tirasganadoras[][3]{{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6}.{0,3,6},{1,4,7},{2,5,8}}; //son las jugadas ganadoras, esto nos servira para definir las funciones como "victoria" y "empate", se puso de tipo "const" porque va a ser constante y nunca va a cambiar
+    int const tirasganadoras[][3]={{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6}.{0,3,6},{1,4,7},{2,5,8}}; //son las jugadas ganadoras, esto nos servira para definir las funciones como "victoria" y "empate", se puso de tipo "const" porque va a ser constante y nunca va a cambiar
+    int const esquinas[]={0,2,6,8};
+    int const vertices[]={1,3,5,7};
+    int const centro[]={4};
     inicializartablero(tablero);
     mostrartablero(tablero);
     while(partidaterminada(tablero)==0)
@@ -66,6 +69,37 @@ int JugadaMaquina(char tablero[])
         if(contador(tablero, 'O', tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3]==2))
         {
             return 1;
+        }
+    }
+    //EMPATA
+    for(int x=0; x<8; x++)
+    {
+        if(contador(tablero, 'X', tirasganadoras[x][1], tirasganadoras[x][2], tirasganadoras[x][3]==2))
+        {
+            return 1;
+        }
+    }
+    //Toma el CENTRO
+    if(CasilleroOcupado(tablero, centro[4])==1)
+    {
+        return centro[4];
+    }
+
+    //Toma las ESQUINAS
+    for(int x=0; x<8; x++)
+    {
+        if(CasilleroOcupado(tablero, esquinas[x])==1)
+        {
+            return esquinas[x];
+        }
+    }
+
+    //Toma los VERTICES
+    for(int x=0; x<8; x++)
+    {
+        if(CasilleroOcupado(tablero, vertices[x])==1)
+        {
+            return vertices[x];
         }
     }
 
