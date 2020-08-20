@@ -17,13 +17,13 @@ int JugadaMaquina (char tablero[]);
 //int filas();
 //int columnas1();
 //int columnas2();
-//int inicializarm·quina();
-int main(int argc, char argv[]) //el argumento argc contiene el n˙mero de parametros que tiene el programa
-//y el vector argv es un vector de tipo strings  que contiene un string por cada uno de los par·metros
+//int inicializarm√°quina();
+int main(int argc, char argv[]) //el argumento argc contiene el n√∫mero de parametros que tiene el programa
+//y el vector argv es un vector de tipo strings  que contiene un string por cada uno de los par√°metros
 {
-    int ele_usu=0; //elecciÛn del usuario de intervalo (1,9)
-    int posicion_usuario; // posiciÌn en el tablero correspondiente a la eleccion del usuario (0,8)
-    int posicion_maquina; //posicion en el tablero correspondiente a la que elige la m·quina (0,8)
+    int ele_usu=0; //elecci√≥n del usuario de intervalo (1,9)
+    int posicion_usuario; // posici√≠n en el tablero correspondiente a la eleccion del usuario (0,8)
+    int posicion_maquina; //posicion en el tablero correspondiente a la que elige la m√°quina (0,8)
     char tablero[9];
     char * posicion;
     int const tirasganadoras[][3]={{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6}.{0,3,6},{1,4,7},{2,5,8}}; //son las jugadas ganadoras, esto nos servira para definir las funciones como "victoria" y "empate", se puso de tipo "const" porque va a ser constante y nunca va a cambiar
@@ -42,7 +42,7 @@ int main(int argc, char argv[]) //el argumento argc contiene el n˙mero de parame
     }
     //posicion_usuario=numeroelegido(ele_usu);
     //dibujarcruz();
-    //posicion_m·quina=inicializarm·quina();
+    //posicion_m√°quina=inicializarm√°quina();
     //circulo();
     return 0;
 }
@@ -113,7 +113,7 @@ int JugadaMaquina(char tablero[])
     }*/
 }
 
-/*void dibujarcirculo() //Esta funciÛn crea los circulos manejados por la maquina
+/*void dibujarcirculo() //Esta funci√≥n crea los circulos manejados por la maquina
 {
     printf("%c", 79);
 }
@@ -122,10 +122,10 @@ void dibujarcruz() //Esta funcion crea las cruces controladas por el usuario
     printf("%c", 88);
 }
 */
-/*int inicializarm·quina(ele_maq) //FunciÛn que representa la jugada de la m·quina
+/*int inicializarm√°quina(ele_maq) //Funci√≥n que representa la jugada de la m√°quina
 {
     srand(time(NULL))
-    ele_maq=rand()%(8-0+0)+0; //el valor aleatorio que va a tomar la elecciÛn de la m·quina
+    ele_maq=rand()%(8-0+0)+0; //el valor aleatorio que va a tomar la elecci√≥n de la m√°quina
     return ele_maq;
 }*/
 /*int numeroelegido(int num_ele) //Esta funcion devuelve un valor entre el intervalo (0,8)
@@ -152,11 +152,11 @@ int arreglarTablero(char tablero[], char * posicion) //Funcion que modifica el t
     }
     return 0;
 }
-int partidaterminada(char tablero) // Esta funciÛn me dice si la partida termina en empate o victoria para que finalce el ciclo repetitivo "while"
+int partidaterminada(char tablero) // Esta funci√≥n me dice si la partida termina en empate o victoria para que finalce el ciclo repetitivo "while"
 {
     return victoria(tablero) || empate(tablero);
 }
-int victoria(char tablero) //Esta funciÛn me dice cu·ndo el juego termina en victoria
+int victoria(char tablero) //Esta funci√≥n me dice cu√°ndo el juego termina en victoria
 {
     for(int x=0; x<8; x++)
     {
@@ -190,13 +190,13 @@ int empate(char tablero) //Esta funcion determina cuando el juego es empate
 {
     for(int x=0; x<8; x++)
     {
-        if(CasilleroOcupado(tablero)) //Aca se llama la funcion para que analize el tablero completo y decir si est· completamente lleno, si es asi que devuelva un valor
+        if(CasilleroOcupado(tablero)) //Aca se llama la funcion para que analize el tablero completo y decir si est√° completamente lleno, si es asi que devuelva un valor
         {
             return 1;
         }
     }
 }
-int CasilleroOcupado(char tablero[], int posicion) //Esta funcion determina si el tablero est· lleno, ya que un juego se considera en empate cuando el tablero est· lleno y no hay 3 simbolos consecutivos iguales
+int CasilleroOcupado(char tablero[], int posicion) //Esta funcion determina si el tablero est√° lleno, ya que un juego se considera en empate cuando el tablero est√° lleno y no hay 3 simbolos consecutivos iguales
 {
     for(int x=0; x<8; x++)
     {
@@ -206,7 +206,7 @@ int CasilleroOcupado(char tablero[], int posicion) //Esta funcion determina si e
         }
         else
         {
-            return 1; //Si el casillero est· ocupado, devuelve un 1, es decir, devuelve un valor.
+            return 1; //Si el casillero est√° ocupado, devuelve un 1, es decir, devuelve un valor.
         }
     }
 }
@@ -227,5 +227,28 @@ int columnas2(int columna2) //Esta funcion devuelve el valor de columnas 7 8 y 9
     return columna2;
 }
 */
+---------------------------------------------------------------------------------------------------------------------------------------
+	
+	/** Primer Ejercicio de Wollock */
+object jugador 
+{
+	var goles = 0
+	method cuantosgolesmetiste() 
+	{
+		return goles
+	}
+	method metegol(gol)
+	{
+		goles = goles+gol
+		if (goles > 30)
+	    {
+		  console.println("Ya meti muchos goles")
+	    }
+	}
+	method anulaciondegoles()
+	{
+	 	goles = 0
+	}
+}
 
 
